@@ -25,6 +25,8 @@ dependencies:
   animations: ^1.1.1
   flutter_svg: ^0.18.0
   flare_flutter: ^2.0.5
+  shared_preferences: ^0.5.8
+  badges: ^1.1.1
   http: ^0.12.1
   flutter:
     sdk: flutter
@@ -48,7 +50,7 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

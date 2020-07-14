@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-const kScaffoldColor = Color(0xFF000000);
-const kPrimaryColor = Color(0xFF00FF00);
+const kScaffoldColor = Color(0xFF131313);
+const kPrimaryColor = Colors.blue;
+const kPadding = 16.0;
 
 ThemeData themeData = ThemeData(
   accentColor: kPrimaryColor,
