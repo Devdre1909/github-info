@@ -19,6 +19,9 @@ class _FollowingState extends State<Following> {
 
   @override
   Widget build(BuildContext context) {
-    return UserListTile(data: following);
+    return UserListTile(
+      data: following,
+      tab: "following",
+    );
   }
 }

@@ -10,21 +10,18 @@ class Github {
 
   Github(this.username);
 
-  Future<http.Response> fetchUser() async {
+  Future<http.Response> fetchUser() {
     // print("$baseUrl/users/$username");
     var authn = 'Basic ' + base64Encode(utf8.encode('$pUsername:$token'));
     print(authn);
-    try {
-      return await http
-          .get("$baseUrl/users/$username", headers: {'Authorization': authn});
-    } catch (e) {
-      print(e);
-    }
+
+    return http
+        .get("$baseUrl/users/$username", headers: {'Authorization': authn});
   }
 
-  Future<http.Response> fetchFollowing() async {
+  Future<http.Response> fetchFollowing() {
     var authn = 'Basic ' + base64Encode(utf8.encode('$pUsername:$token'));
-    return await http.get("$baseUrl/users/$username/following",
+    return http.get("$baseUrl/users/$username/following",
         headers: {'Authorization': authn});
   }
 
