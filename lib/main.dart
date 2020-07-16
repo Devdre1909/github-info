@@ -1,16 +1,20 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:github_pages/providers/UserProvider.dart';
 import 'package:github_pages/screens/user_info.dart';
 import 'package:github_pages/utils/constants.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(
-      MultiProvider(
-        providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
-        child: MyApp(),
-      ),
-    );
+Future main() async {
+  await DotEnv().load('.env');
+  return runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

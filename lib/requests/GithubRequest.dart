@@ -1,11 +1,12 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Github {
   final String username;
-  final String baseUrl = "https://api.github.com";
-  final String token = "d011f56185b1dea374ada5048975921ef64b972d";
-  final String pUsername = "devdre1909";
+  final String baseUrl = DotEnv().env['BASEURL'];
+  final String token = DotEnv().env['TOKEN'];
+  final String pUsername = DotEnv().env['USERNAME'];
 
   Github(this.username);
 
