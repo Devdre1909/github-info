@@ -18,12 +18,14 @@ class UserProvider with ChangeNotifier {
     setLoading(true);
 
     await Github(username).fetchUser().then((data) {
+      print("from provider ${data.statusCode}");
       if (data.statusCode == 200) {
         setUser(User.fromJson(json.decode(data.body)));
+        setLoading(false);
       } else {
         setLoading(false);
         Map<String, dynamic> result = json.decode(data.body);
-        // print(result['message']);
+        print(result['message']);
         setErrorMessage(result['message']);
       }
     });

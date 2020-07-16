@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kScaffoldColor = Color(0xFF131313);
+const kScaffoldColor = Colors.black54;
 const kPrimaryColor = Colors.blue;
 const kPadding = 16.0;
 
