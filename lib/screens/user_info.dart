@@ -27,6 +27,7 @@ class _UserInfoState extends State<UserInfo> {
   User user;
   List<User> following;
   List<User> followers;
+  List<Repos> repos;
   final String username;
 
   _UserInfoState(this.username);
@@ -50,6 +51,11 @@ class _UserInfoState extends State<UserInfo> {
     setState(() {
       followers = followersList.map((e) => User.fromJson(e)).toList();
     });
+
+    var reposValue = await Github(user.login).fetchRepos();
+    Iterable reposList = json.decode(reposValue.body);
+
+    setState(() {});
   }
 
   _decidePath(username) {
@@ -164,8 +170,12 @@ class _UserInfoState extends State<UserInfo> {
                             ),
                             Tab(
                               child: TabItem(
-                                hasValue: false,
+                                hasValue: true,
+                                text: user != null
+                                    ? user.publicRepos.toString()
+                                    : '',
                                 tabName: "Repos",
+                                innerBoxIsScrolled: innerBoxIsScrolled,
                               ),
                             ),
                             Tab(
@@ -281,7 +291,9 @@ class _UserInfoState extends State<UserInfo> {
                         followers: followers,
                         following: following,
                       ),
-                      Repos(),
+                      Repos(
+                        username: user.login,
+                      ),
                       Org(),
                     ],
                   ),

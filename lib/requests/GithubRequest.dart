@@ -36,4 +36,10 @@ class Github {
     return http.get("$baseUrl/users/$username/repos",
         headers: {'Authorization': authn});
   }
+
+  Future<http.Response> fetchOrgs() {
+    var authn = 'Basic ' + base64Encode(utf8.encode('$pUsername:$token'));
+    return http.get("$baseUrl/users/$username/orgs",
+        headers: {'Authorization': authn});
+  }
 }
